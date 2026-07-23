@@ -4,630 +4,375 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>S. Karthikeyan — Accounts &amp; MIS</title>
+<meta name="description" content="S. Karthikeyan — B.Com Computer Applications student seeking entry-level roles in accounts, MIS and financial documentation. Based in Karur, Tamil Nadu.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-
-:root{
-  --crimson:#710014;
-  --sand:#B38F6F;
-  --pearl:#F2F1ED;
-  --black:#161616;
-  --crimson-tint: #8a1224;
-  --line: rgba(22,22,22,0.14);
-  --line-strong: rgba(22,22,22,0.28);
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-html{scroll-behavior:smooth;}
-
-body{
-  background:var(--pearl);
-  color:var(--black);
-  font-family:'Inter', sans-serif;
-  -webkit-font-smoothing:antialiased;
-}
-
-::selection{background:var(--crimson);color:var(--pearl);}
-
-.wrap{
-  max-width:920px;
-  margin:0 auto;
-  padding:0 32px;
-}
-
-/* ---------- ledger rule background ---------- */
-.ledger-lines{
-  background-image: repeating-linear-gradient(
-    to bottom,
-    transparent,
-    transparent 41px,
-    var(--line) 41px,
-    var(--line) 42px
-  );
-}
-
-/* ---------- header / masthead ---------- */
-header{
-  border-bottom: 3px solid var(--black);
-  padding-top:56px;
-  position:relative;
-  overflow:hidden;
-  background:var(--black);
-}
-
-/* ---------- generated light-streak background (canvas, no external file) ---------- */
-.canvas-field{
-  position:absolute;
-  inset:0;
-  z-index:0;
-  overflow:hidden;
-}
-
-#streakCanvas{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  display:block;
-}
-
-.veil-tone{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(180deg, rgba(113,0,20,0.35) 0%, rgba(22,22,22,0.25) 55%, rgba(22,22,22,0.82) 100%);
-  mix-blend-mode:multiply;
-}
-
-.veil-grain{
-  position:absolute;
-  inset:0;
-  background:radial-gradient(circle at 75% 15%, rgba(179,143,111,0.22) 0%, transparent 55%);
-}
-
-header > .wrap-inner, header .masthead-top, header .masthead-name,
-header .masthead-role, header .masthead-contact{
-  position:relative;
-  z-index:1;
-}
-
-header .masthead-name, header .masthead-top span:first-child{
-  color:var(--pearl);
-}
-
-header .masthead-top span:last-child{
-  color:var(--pearl);
-  opacity:0.6;
-}
-
-header .masthead-role{
-  color:var(--sand);
-}
-
-header .masthead-contact{
-  border-top:1px solid rgba(242,241,237,0.25);
-}
-
-header .masthead-contact a, header .masthead-contact div{
-  color:var(--pearl);
-}
-
-header .masthead-contact a:hover{
-  color:var(--sand);
-  border-bottom:1px solid var(--sand);
-}
-
-@media (prefers-reduced-motion: reduce){
-  #streakCanvas{ display:none; }
-  header{ background:var(--black); }
-}
-
-
-.masthead-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:baseline;
-  font-family:'Space Mono', monospace;
-  font-size:12px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  color:var(--crimson);
-  padding-bottom:28px;
-}
-
-.masthead-top span:last-child{color:var(--black); opacity:0.55;}
-
-.masthead-name{
-  font-family:'Fraunces', serif;
-  font-weight:600;
-  font-size:clamp(48px, 9vw, 96px);
-  line-height:0.96;
-  letter-spacing:-0.01em;
-  padding-bottom:18px;
-}
-
-.masthead-role{
-  font-family:'Inter', sans-serif;
-  font-weight:500;
-  font-size:clamp(15px, 2vw, 19px);
-  color:var(--crimson);
-  padding-bottom:34px;
-  max-width:560px;
-}
-
-.masthead-contact{
-  display:flex;
-  flex-wrap:wrap;
-  gap:0;
-  border-top:1px solid var(--line-strong);
-}
-
-.masthead-contact a, .masthead-contact div{
-  font-family:'Space Mono', monospace;
-  font-size:12.5px;
-  padding:14px 22px 14px 0;
-  margin-right:22px;
-  color:var(--black);
-  text-decoration:none;
-  white-space:nowrap;
-}
-
-.masthead-contact a{border-bottom:1px solid transparent;}
-.masthead-contact a:hover{border-bottom:1px solid var(--crimson); color:var(--crimson);}
-
-/* ---------- section scaffolding ---------- */
-section{
-  padding:56px 0;
-  border-bottom:1px solid var(--line-strong);
-}
-
-.section-head{
-  display:flex;
-  align-items:baseline;
-  gap:16px;
-  margin-bottom:32px;
-}
-
-.section-tag{
-  font-family:'Space Mono', monospace;
-  font-size:11px;
-  letter-spacing:0.14em;
-  color:var(--sand);
-  background:var(--black);
-  padding:4px 9px;
-  border-radius:2px;
-}
-
-.section-title{
-  font-family:'Fraunces', serif;
-  font-weight:600;
-  font-size:30px;
-  letter-spacing:-0.01em;
-}
-
-/* ---------- summary ---------- */
-.summary-text{
-  font-size:17px;
-  line-height:1.75;
-  max-width:680px;
-  color:var(--black);
-}
-
-.summary-text .drop{
-  font-family:'Fraunces', serif;
-  font-size:56px;
-  font-weight:600;
-  line-height:0.7;
-  float:left;
-  padding-right:10px;
-  padding-top:8px;
-  color:var(--crimson);
-}
-
-/* ---------- ledger table (education) ---------- */
-.ledger{
-  width:100%;
-  border-collapse:collapse;
-}
-
-.ledger thead th{
-  font-family:'Space Mono', monospace;
-  font-size:11px;
-  letter-spacing:0.12em;
-  text-transform:uppercase;
-  text-align:left;
-  color:var(--black);
-  opacity:0.5;
-  padding-bottom:10px;
-  border-bottom:2px solid var(--black);
-  font-weight:400;
-}
-
-.ledger thead th.num{text-align:right;}
-
-.ledger tbody tr{border-bottom:1px solid var(--line);}
-.ledger tbody tr:hover{background:rgba(113,0,20,0.035);}
-
-.ledger td{
-  padding:20px 8px 20px 0;
-  vertical-align:top;
-}
-
-.ledger td.entry-no{
-  font-family:'Space Mono', monospace;
-  color:var(--sand);
-  font-size:13px;
-  width:36px;
-}
-
-.ledger td.entry-title{
-  font-family:'Fraunces', serif;
-  font-weight:600;
-  font-size:18px;
-  width:38%;
-}
-
-.ledger td.entry-sub{
-  font-size:14px;
-  color:var(--black);
-  opacity:0.72;
-  line-height:1.5;
-}
-
-.ledger td.entry-year{
-  font-family:'Space Mono', monospace;
-  font-size:13px;
-  text-align:right;
-  white-space:nowrap;
-  color:var(--crimson);
-}
-
-/* ---------- skills: two-column ledger ---------- */
-.skills-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:0 48px;
-}
-
-.skill-row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:14px 0;
-  border-bottom:1px solid var(--line);
-  gap:16px;
-}
-
-.skill-name{font-size:14.5px; font-weight:500;}
-.skill-note{
-  font-family:'Space Mono', monospace;
-  font-size:11.5px;
-  color:var(--black);
-  opacity:0.5;
-  text-align:right;
-}
-
-/* ---------- competencies tags ---------- */
-.tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-
-.tag{
-  font-family:'Space Mono', monospace;
-  font-size:12.5px;
-  border:1px solid var(--line-strong);
-  padding:9px 14px;
-  border-radius:2px;
-  color:var(--black);
-}
-
-.tag::before{content:"§ "; color:var(--crimson);}
-
-/* ---------- project case file ---------- */
-.case-file{
-  background:var(--black);
-  color:var(--pearl);
-  padding:40px;
-  border-radius:2px;
-  position:relative;
-}
-
-.case-file::before{
-  content:"CASE FILE / 01";
-  position:absolute;
-  top:16px;
-  right:20px;
-  font-family:'Space Mono', monospace;
-  font-size:10.5px;
-  letter-spacing:0.14em;
-  color:var(--sand);
-}
-
-.case-title{
-  font-family:'Fraunces', serif;
-  font-weight:600;
-  font-size:24px;
-  margin-bottom:14px;
-  max-width:80%;
-}
-
-.case-body{
-  font-size:15px;
-  line-height:1.75;
-  opacity:0.85;
-  max-width:620px;
-  margin-bottom:22px;
-}
-
-.case-list{
-  list-style:none;
-  border-top:1px solid rgba(242,241,237,0.18);
-  padding-top:18px;
-}
-
-.case-list li{
-  font-size:13.5px;
-  padding:9px 0;
-  border-bottom:1px solid rgba(242,241,237,0.1);
-  display:flex;
-  gap:10px;
-}
-
-.case-list li::before{
-  content:"—";
-  color:var(--sand);
-}
-
-/* ---------- footer ---------- */
-footer{
-  padding:48px 0 64px;
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  flex-wrap:wrap;
-  gap:20px;
-}
-
-footer .foot-quote{
-  font-family:'Fraunces', serif;
-  font-style:italic;
-  font-size:16px;
-  color:var(--crimson);
-  max-width:420px;
-}
-
-footer .foot-mark{
-  font-family:'Space Mono', monospace;
-  font-size:11px;
-  color:var(--black);
-  opacity:0.45;
-  text-align:right;
-}
-
-/* ---------- responsive ---------- */
-@media (max-width:720px){
-  .wrap{padding:0 20px;}
-  .skills-grid{grid-template-columns:1fr;}
-  .ledger td.entry-title{width:auto;}
-  .ledger thead{display:none;}
-  .ledger td{display:block; padding:2px 0;}
-  .ledger tbody tr{padding:16px 0; display:block;}
-  .ledger td.entry-year{text-align:left; padding-top:6px;}
-  .case-title{max-width:100%;}
-}
-
-@media (prefers-reduced-motion: reduce){
-  html{scroll-behavior:auto;}
-}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="wrap">
+<!-- ═══════════════════  MASTHEAD  ═══════════════════ -->
+<header id="top">
+  <div class="header-canvas">
+    <!-- animated grid lines -->
+    <div class="grid-overlay" aria-hidden="true"></div>
+    <!-- warm vignette -->
+    <div class="veil-tone" aria-hidden="true"></div>
+    <div class="veil-grain" aria-hidden="true"></div>
+    <!-- subtle animated particles -->
+    <div class="particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </div>
 
-  <header>
-    <div class="canvas-field">
-      <canvas id="streakCanvas"></canvas>
-      <div class="veil-tone"></div>
-      <div class="veil-grain"></div>
+  <div class="wrap">
+    <div class="masthead-top" data-animate>
+      <span class="eyebrow-label">Ledger of Record</span>
+      <span class="eyebrow-right">Karur, Tamil Nadu&nbsp;—&nbsp;IN</span>
     </div>
-    <div class="masthead-top">
-      <span>Ledger of Record</span>
-      <span>Karur, Tamil Nadu — IN</span>
-    </div>
-    <h1 class="masthead-name">Karthikeyan&nbsp;S.</h1>
-    <p class="masthead-role">Commerce graduate (B.Com Computer Applications) building toward a career in accounts, MIS and financial documentation — precise with numbers, patient with detail.</p>
-    <div class="masthead-contact">
-      <a href="mailto:karthikeyan90009@gmail.com">karthikeyan90009@gmail.com</a>
-      <a href="tel:+917812838901">+91 78128 38901</a>
-      <div>Andippattikottai, Aravakurichi, Karur (D)</div>
-    </div>
-  </header>
 
-  <section id="summary">
+    <h1 class="masthead-name" data-animate data-delay="100">
+      Karthikeyan<br><em>S.</em>
+    </h1>
+
+    <p class="masthead-role" data-animate data-delay="200">
+      Commerce graduate (B.Com Computer Applications) — building toward a career
+      in <strong>accounts</strong>, <strong>MIS</strong> and <strong>financial documentation</strong>.
+      Precise with numbers. Patient with detail.
+    </p>
+
+    <div class="masthead-contact" data-animate data-delay="300">
+      <a href="mailto:karthikeyan90009@gmail.com" class="contact-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"/><path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"/></svg>
+        karthikeyan90009@gmail.com
+      </a>
+      <a href="tel:+917812838901" class="contact-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M2 3.5A1.5 1.5 0 013.5 2h1.148a1.5 1.5 0 011.465 1.175l.716 3.223a1.5 1.5 0 01-1.052 1.767l-.933.267c-.41.117-.643.555-.48.95a11.542 11.542 0 006.254 6.254c.395.163.833-.07.95-.48l.267-.933a1.5 1.5 0 011.767-1.052l3.223.716A1.5 1.5 0 0118 15.352V16.5a1.5 1.5 0 01-1.5 1.5H15c-1.149 0-2.263-.15-3.326-.43A13.022 13.022 0 012.43 8.326 13.019 13.019 0 012 5V3.5z" clip-rule="evenodd"/></svg>
+        +91 78128 38901
+      </a>
+      <div class="contact-pill contact-location">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M9.69 18.933l.003.001C9.89 19.02 10 19 10 19s.11.02.308-.066l.002-.001.006-.003.018-.008a5.741 5.741 0 00.281-.14c.186-.096.446-.24.757-.433.62-.384 1.445-.966 2.274-1.765C15.302 15.089 17 12.432 17 9A7 7 0 103 9c0 3.432 1.698 6.089 3.354 7.584a13.731 13.731 0 002.274 1.765 11.842 11.842 0 00.757.433 5.737 5.737 0 00.281.14l.018.008.006.003zM10 11.25a2.25 2.25 0 100-4.5 2.25 2.25 0 000 4.5z" clip-rule="evenodd"/></svg>
+        Andippattikottai, Aravakurichi, Karur (D)
+      </div>
+    </div>
+
+    <!-- scroll cue -->
+    <a href="#summary" class="scroll-cue" aria-label="Scroll to content">
+      <span class="scroll-line"></span>
+      <span class="scroll-text">Scroll</span>
+    </a>
+  </div>
+</header>
+
+<!-- ═══════════════════  NAV BAR (sticky)  ═══════════════════ -->
+<nav class="sidenav" aria-label="Page sections">
+  <div class="sidenav-track">
+    <a href="#summary"      class="sidenav-link" data-section="summary">01</a>
+    <a href="#education"    class="sidenav-link" data-section="education">02</a>
+    <a href="#skills"       class="sidenav-link" data-section="skills">03</a>
+    <a href="#competencies" class="sidenav-link" data-section="competencies">04</a>
+    <a href="#project"      class="sidenav-link" data-section="project">05</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════  MAIN  ═══════════════════ -->
+<main class="wrap">
+
+  <!-- 01 SUMMARY -->
+  <section id="summary" class="section" data-animate>
     <div class="section-head">
       <span class="section-tag">01 — SUMMARY</span>
-      <span class="section-title">Opening Balance</span>
+      <h2 class="section-title">Opening Balance</h2>
+      <div class="section-rule"></div>
     </div>
-    <p class="summary-text"><span class="drop">M</span>otivated and detail-oriented, currently pursuing B.Com Computer Applications with a solid grounding in commerce fundamentals and hands-on proficiency in MS Excel, Word and PowerPoint. Looking for an entry-level role in accounts, finance operations, data management or back-office support — bringing strong learning ability, accuracy, and a commitment to organisational compliance and efficiency. The goal: apply academic knowledge, build real industry experience, and keep the books straight.</p>
+    <div class="summary-block">
+      <p class="summary-text">
+        <span class="drop" aria-hidden="true">M</span>otivated and detail-oriented, currently pursuing B.Com Computer Applications with a solid
+        grounding in commerce fundamentals and hands-on proficiency in MS Excel, Word and PowerPoint.
+        Seeking an entry-level role in accounts, finance operations, data management or back-office
+        support — bringing strong learning ability, accuracy, and a commitment to organisational
+        compliance and efficiency.
+      </p>
+      <div class="summary-accent">
+        <div class="accent-stat"><span class="accent-num">3</span><span class="accent-label">Years<br>B.Com</span></div>
+        <div class="accent-stat"><span class="accent-num">100<span class="accent-pct">%</span></span><span class="accent-label">Commerce<br>Focus</span></div>
+        <div class="accent-stat"><span class="accent-num">7</span><span class="accent-label">Core<br>Competencies</span></div>
+      </div>
+    </div>
   </section>
 
-  <section id="education" class="ledger-lines">
+  <!-- 02 EDUCATION -->
+  <section id="education" class="section ledger-bg" data-animate>
     <div class="section-head">
       <span class="section-tag">02 — EDUCATION</span>
-      <span class="section-title">Academic Entries</span>
+      <h2 class="section-title">Academic Entries</h2>
+      <div class="section-rule"></div>
     </div>
-    <table class="ledger">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Particulars</th>
-          <th>Institution</th>
-          <th class="num">Period</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="entry-no">01</td>
-          <td class="entry-title">B.Com — Computer Applications</td>
-          <td class="entry-sub">Jairams Arts and Science College, Karur<br>Bharathidasan University · in progress</td>
-          <td class="entry-year">2023 — 2026</td>
-        </tr>
-        <tr>
-          <td class="entry-no">02</td>
-          <td class="entry-title">Higher Secondary Education</td>
-          <td class="entry-sub">Andippattikottai Higher Secondary School</td>
-          <td class="entry-year">2022 — 2023</td>
-        </tr>
-        <tr>
-          <td class="entry-no">03</td>
-          <td class="entry-title">SSLC</td>
-          <td class="entry-sub">Andippattikottai Higher Secondary School</td>
-          <td class="entry-year">2020 — 2021</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <div class="edu-stack">
+
+      <div class="edu-card edu-card--active">
+        <div class="edu-card-inner">
+          <div class="edu-index">01</div>
+          <div class="edu-body">
+            <div class="edu-badge">In Progress</div>
+            <h3 class="edu-degree">B.Com — Computer Applications</h3>
+            <p class="edu-school">Jairams Arts and Science College, Karur</p>
+            <p class="edu-affil">Affiliated: Bharathidasan University</p>
+          </div>
+          <div class="edu-period">
+            <span class="edu-year">2023</span>
+            <span class="edu-divider">—</span>
+            <span class="edu-year">2026</span>
+          </div>
+        </div>
+        <div class="edu-progress-bar"><div class="edu-progress-fill" style="--pct:67%"></div></div>
+        <p class="edu-progress-label">Year 3 of 3 · Est. completion 2026</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-card-inner">
+          <div class="edu-index">02</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">Higher Secondary Certificate (HSC)</h3>
+            <p class="edu-school">Andippattikottai Higher Secondary School</p>
+          </div>
+          <div class="edu-period">
+            <span class="edu-year">2022</span>
+            <span class="edu-divider">—</span>
+            <span class="edu-year">2023</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-card-inner">
+          <div class="edu-index">03</div>
+          <div class="edu-body">
+            <h3 class="edu-degree">Secondary School Leaving Certificate (SSLC)</h3>
+            <p class="edu-school">Andippattikottai Higher Secondary School</p>
+          </div>
+          <div class="edu-period">
+            <span class="edu-year">2020</span>
+            <span class="edu-divider">—</span>
+            <span class="edu-year">2021</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <section id="skills">
+  <!-- 03 SKILLS -->
+  <section id="skills" class="section" data-animate>
     <div class="section-head">
       <span class="section-tag">03 — SKILLS</span>
-      <span class="section-title">Working Tools</span>
+      <h2 class="section-title">Working Tools</h2>
+      <div class="section-rule"></div>
     </div>
+
     <div class="skills-grid">
-      <div>
-        <div class="skill-row"><span class="skill-name">MS Excel</span><span class="skill-note">data entry · formatting · calculations</span></div>
-        <div class="skill-row"><span class="skill-name">MS Word</span><span class="skill-note">document creation · editing</span></div>
+      <div class="skill-card" style="--i:0">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="6" fill="#1D6F42" fill-opacity=".12"/>
+            <path d="M8 10h10v5H8zm12 0h12v5H20zM8 17h10v5H8zm12 0h12v5H20zM8 24h10v5H8zm12 0h12v5H20z" fill="#1D6F42" fill-opacity=".6"/>
+          </svg>
+        </div>
+        <div class="skill-info">
+          <span class="skill-name">MS Excel</span>
+          <span class="skill-tags">Data entry · Formatting · Calculations</span>
+        </div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="--lvl:82%"></div></div>
       </div>
-      <div>
-        <div class="skill-row"><span class="skill-name">MS PowerPoint</span><span class="skill-note">presentation design</span></div>
-        <div class="skill-row"><span class="skill-name">Digital literacy</span><span class="skill-note">B.Com coursework</span></div>
+
+      <div class="skill-card" style="--i:1">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="6" fill="#2B5797" fill-opacity=".12"/>
+            <path d="M10 12h20v3H10zm0 5h20v2H10zm0 4h14v2H10zm0 4h20v2H10zm0 4h10v2H10z" fill="#2B5797" fill-opacity=".7"/>
+          </svg>
+        </div>
+        <div class="skill-info">
+          <span class="skill-name">MS Word</span>
+          <span class="skill-tags">Document creation · Editing</span>
+        </div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="--lvl:85%"></div></div>
+      </div>
+
+      <div class="skill-card" style="--i:2">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="6" fill="#B7472A" fill-opacity=".12"/>
+            <rect x="8" y="10" width="24" height="17" rx="2" fill="#B7472A" fill-opacity=".25"/>
+            <rect x="12" y="14" width="16" height="9" rx="1" fill="#B7472A" fill-opacity=".5"/>
+            <path d="M16 29h8l1 3h-10l1-3z" fill="#B7472A" fill-opacity=".4"/>
+          </svg>
+        </div>
+        <div class="skill-info">
+          <span class="skill-name">MS PowerPoint</span>
+          <span class="skill-tags">Presentation design</span>
+        </div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="--lvl:78%"></div></div>
+      </div>
+
+      <div class="skill-card" style="--i:3">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="6" fill="#710014" fill-opacity=".1"/>
+            <circle cx="20" cy="18" r="6" fill="#710014" fill-opacity=".3"/>
+            <path d="M10 30c0-5.523 4.477-10 10-10s10 4.477 10 10" stroke="#710014" stroke-opacity=".5" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="skill-info">
+          <span class="skill-name">Digital Literacy</span>
+          <span class="skill-tags">B.Com coursework · Internet tools</span>
+        </div>
+        <div class="skill-bar-wrap"><div class="skill-bar" style="--lvl:74%"></div></div>
       </div>
     </div>
   </section>
 
-  <section id="competencies">
+  <!-- 04 COMPETENCIES -->
+  <section id="competencies" class="section ledger-bg" data-animate>
     <div class="section-head">
       <span class="section-tag">04 — COMPETENCIES</span>
-      <span class="section-title">Core Ledger Lines</span>
+      <h2 class="section-title">Core Ledger Lines</h2>
+      <div class="section-rule"></div>
     </div>
-    <div class="tags">
-      <span class="tag">Commerce &amp; Accounting Fundamentals</span>
-      <span class="tag">Computer Applications &amp; Digital Tools</span>
-      <span class="tag">Data Entry &amp; Documentation</span>
-      <span class="tag">MS Office Suite Proficiency</span>
-      <span class="tag">Attention to Detail &amp; Accuracy</span>
-      <span class="tag">Quick Learner &amp; Adaptability</span>
-      <span class="tag">Time Management</span>
+    <div class="comp-grid">
+      <div class="comp-item" style="--i:0">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7H6a2 2 0 00-2 2v9a2 2 0 002 2h9a2 2 0 002-2v-3M9 17H5M13 3h8v8m0-8L11 13"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Commerce &amp; Accounting Fundamentals</span>
+          <span class="comp-sub">Double-entry, ledgers, trial balance</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:1">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Computer Applications &amp; Digital Tools</span>
+          <span class="comp-sub">MS Office, digital workflows</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:2">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Data Entry &amp; Documentation</span>
+          <span class="comp-sub">Accuracy, consistency, record-keeping</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:3">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">MS Office Suite Proficiency</span>
+          <span class="comp-sub">Excel, Word, PowerPoint</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:4">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Attention to Detail &amp; Accuracy</span>
+          <span class="comp-sub">Error detection, careful review</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:5">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Quick Learner &amp; Adaptability</span>
+          <span class="comp-sub">Fast skill acquisition, flexible</span>
+        </div>
+      </div>
+      <div class="comp-item" style="--i:6">
+        <div class="comp-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="comp-text">
+          <span class="comp-name">Time Management</span>
+          <span class="comp-sub">Deadline-driven, prioritisation</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="project">
+  <!-- 05 PROJECT -->
+  <section id="project" class="section" data-animate>
     <div class="section-head">
       <span class="section-tag">05 — PROJECT</span>
-      <span class="section-title">Academic Record</span>
+      <h2 class="section-title">Academic Record</h2>
+      <div class="section-rule"></div>
     </div>
+
     <div class="case-file">
-      <div class="case-title">Marketing and Computer Applications</div>
-      <p class="case-body">An academic project examining how computer applications and digital tools support marketing activity — how digital tools improve customer engagement and drive business growth, structured and presented using core computer application concepts.</p>
+      <div class="case-file-header">
+        <div class="case-stamp">CASE FILE / 01</div>
+        <div class="case-meta">
+          <span class="case-type">Academic Project</span>
+          <span class="case-dot"></span>
+          <span class="case-year">2023 – 2024</span>
+        </div>
+      </div>
+      <h3 class="case-title">Marketing and Computer Applications</h3>
+      <p class="case-body">
+        An academic project examining how computer applications and digital tools support
+        marketing activity — analysing how digital methods improve customer engagement and drive
+        business growth, structured using core computer application concepts.
+      </p>
       <ul class="case-list">
-        <li>Explored the use of computer applications and digital tools in marketing processes</li>
-        <li>Analysed methods to improve customer engagement through digital means</li>
-        <li>Presented findings and recommendations for supporting business growth through technology adoption</li>
+        <li>
+          <span class="case-bullet">01</span>
+          Explored the use of computer applications and digital tools in marketing processes
+        </li>
+        <li>
+          <span class="case-bullet">02</span>
+          Analysed methods to improve customer engagement through digital means
+        </li>
+        <li>
+          <span class="case-bullet">03</span>
+          Presented findings and recommendations for supporting business growth through technology adoption
+        </li>
       </ul>
+      <div class="case-footer">
+        <div class="case-tags">
+          <span class="case-tag">Marketing</span>
+          <span class="case-tag">Digital Tools</span>
+          <span class="case-tag">Research</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p class="foot-quote">"Accuracy today, opportunity tomorrow."</p>
-    <p class="foot-mark">S. KARTHIKEYAN · CLOSING ENTRY · 2026</p>
-  </footer>
+</main>
 
-</div>
+<!-- ═══════════════════  FOOTER  ═══════════════════ -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-left">
+      <p class="foot-name">S. Karthikeyan</p>
+      <p class="foot-quote">"Accuracy today, opportunity tomorrow."</p>
+    </div>
+    <div class="footer-right">
+      <a href="mailto:karthikeyan90009@gmail.com" class="footer-link">karthikeyan90009@gmail.com</a>
+      <p class="foot-mark">CLOSING ENTRY · 2026</p>
+    </div>
+  </div>
+  <div class="footer-bar"></div>
+</footer>
 
-<script>
-(function(){
-  var canvas = document.getElementById('streakCanvas');
-  if(!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var header = canvas.closest('header');
-  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  var W, H, DPR;
-  function resize(){
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    W = header.offsetWidth;
-    H = header.offsetHeight;
-    canvas.width = W * DPR;
-    canvas.height = H * DPR;
-    canvas.style.width = W + 'px';
-    canvas.style.height = H + 'px';
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  /* palette-tied streak colours: crimson, sand, a cool highlight, pearl */
-  var streaks = [
-    { color:'#710014', width: 90, speed: 0.09, phase: 0.0,  ampY: 0.10, curve: 0.55, glow: 46 },
-    { color:'#B38F6F', width: 60, speed: 0.07, phase: 1.4,  ampY: 0.14, curve: 0.42, glow: 34 },
-    { color:'#8fb8c9', width: 40, speed: 0.11, phase: 2.6,  ampY: 0.08, curve: 0.62, glow: 30 },
-    { color:'#F2F1ED', width: 18, speed: 0.13, phase: 3.6,  ampY: 0.12, curve: 0.50, glow: 24 }
-  ];
-
-  function drawStreak(s, t){
-    var startX = -W * 0.15;
-    var endX   = W * 1.15;
-    var baseY  = H * (0.35 + s.ampY * Math.sin(t * s.speed + s.phase));
-    var midY   = baseY - H * s.curve;
-
-    var grad = ctx.createLinearGradient(startX, 0, endX, 0);
-    grad.addColorStop(0.00, 'rgba(0,0,0,0)');
-    grad.addColorStop(0.35, s.color);
-    grad.addColorStop(0.55, '#ffffff');
-    grad.addColorStop(0.75, s.color);
-    grad.addColorStop(1.00, 'rgba(0,0,0,0)');
-
-    ctx.save();
-    ctx.globalCompositeOperation = 'screen';
-    ctx.shadowColor = s.color;
-    ctx.shadowBlur = s.glow;
-    ctx.lineCap = 'round';
-    ctx.strokeStyle = grad;
-    ctx.lineWidth = s.width;
-    ctx.beginPath();
-    ctx.moveTo(startX, baseY + H*0.25);
-    ctx.quadraticCurveTo(W*0.5, midY, endX, baseY - H*0.35);
-    ctx.stroke();
-    ctx.restore();
-  }
-
-  function render(t){
-    ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = '#161616';
-    ctx.fillRect(0, 0, W, H);
-    for(var i=0;i<streaks.length;i++){ drawStreak(streaks[i], t); }
-  }
-
-  if(reduceMotion){
-    render(0);
-    return;
-  }
-
-  var start = null;
-  function frame(ts){
-    if(!start) start = ts;
-    var t = (ts - start) / 1000;
-    render(t);
-    requestAnimationFrame(frame);
-  }
-  requestAnimationFrame(frame);
-})();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
