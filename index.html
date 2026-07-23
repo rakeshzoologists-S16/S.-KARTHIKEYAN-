@@ -55,67 +55,40 @@ header{
   padding-top:56px;
   position:relative;
   overflow:hidden;
+  background:var(--black);
 }
 
-/* ---------- ambient gradient field (masthead only) ---------- */
-.gradient-field{
+/* ---------- video background field (masthead only) ---------- */
+.video-field{
   position:absolute;
-  inset:-20% -10% -10% -10%;
+  inset:0;
   z-index:0;
-  pointer-events:none;
   overflow:hidden;
 }
 
-.blob{
+.video-field video{
   position:absolute;
-  border-radius:50%;
-  filter:blur(70px);
-  opacity:0.55;
-  will-change:transform;
+  top:50%; left:50%;
+  min-width:100%; min-height:100%;
+  width:auto; height:auto;
+  transform:translate(-50%, -50%);
+  object-fit:cover;
+  filter:saturate(1.05) contrast(1.05);
 }
 
-.blob-1{
-  width:420px; height:420px;
-  top:-140px; left:-80px;
-  background:radial-gradient(circle at 30% 30%, var(--crimson) 0%, transparent 72%);
-  animation:drift1 26s ease-in-out infinite;
-}
-
-.blob-2{
-  width:360px; height:360px;
-  top:20px; right:-100px;
-  background:radial-gradient(circle at 60% 40%, var(--sand) 0%, transparent 70%);
-  animation:drift2 32s ease-in-out infinite;
-}
-
-.blob-3{
-  width:300px; height:300px;
-  bottom:-160px; left:38%;
-  background:radial-gradient(circle at 50% 50%, var(--crimson-tint) 0%, transparent 75%);
-  opacity:0.35;
-  animation:drift3 22s ease-in-out infinite;
-}
-
-.grain-veil{
+/* colour-matched veils: tie the raw footage to the crimson / sand / pearl palette */
+.veil-tone{
   position:absolute;
   inset:0;
-  background:var(--pearl);
-  opacity:0.28;
+  background:
+    linear-gradient(180deg, rgba(113,0,20,0.55) 0%, rgba(22,22,22,0.55) 55%, rgba(22,22,22,0.86) 100%);
+  mix-blend-mode:multiply;
 }
 
-@keyframes drift1{
-  0%, 100%{ transform:translate(0,0) scale(1); }
-  50%{ transform:translate(60px, 40px) scale(1.12); }
-}
-
-@keyframes drift2{
-  0%, 100%{ transform:translate(0,0) scale(1); }
-  50%{ transform:translate(-50px, 30px) scale(0.9); }
-}
-
-@keyframes drift3{
-  0%, 100%{ transform:translate(0,0) scale(1); }
-  50%{ transform:translate(40px, -30px) scale(1.15); }
+.veil-grain{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at 75% 15%, rgba(179,143,111,0.28) 0%, transparent 55%);
 }
 
 header > .wrap-inner, header .masthead-top, header .masthead-name,
@@ -124,8 +97,35 @@ header .masthead-role, header .masthead-contact{
   z-index:1;
 }
 
+header .masthead-name, header .masthead-top span:first-child{
+  color:var(--pearl);
+}
+
+header .masthead-top span:last-child{
+  color:var(--pearl);
+  opacity:0.6;
+}
+
+header .masthead-role{
+  color:var(--sand);
+}
+
+header .masthead-contact{
+  border-top:1px solid rgba(242,241,237,0.25);
+}
+
+header .masthead-contact a, header .masthead-contact div{
+  color:var(--pearl);
+}
+
+header .masthead-contact a:hover{
+  color:var(--sand);
+  border-bottom:1px solid var(--sand);
+}
+
 @media (prefers-reduced-motion: reduce){
-  .blob{ animation:none; }
+  .video-field video{ display:none; }
+  header{ background:var(--black); }
 }
 
 .masthead-top{
@@ -433,11 +433,12 @@ footer .foot-mark{
 <div class="wrap">
 
   <header>
-    <div class="gradient-field">
-      <div class="blob blob-1"></div>
-      <div class="blob blob-2"></div>
-      <div class="blob blob-3"></div>
-      <div class="grain-veil"></div>
+    <div class="video-field">
+      <video autoplay muted loop playsinline poster="assets/bg-poster.jpg">
+        <source src="assets/bg-video.mp4" type="video/mp4">
+      </video>
+      <div class="veil-tone"></div>
+      <div class="veil-grain"></div>
     </div>
     <div class="masthead-top">
       <span>Ledger of Record</span>
